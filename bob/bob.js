@@ -5,17 +5,29 @@
 
 var Bob = function() {};
 
-Bob.prototype.hey = function(input) {
-  if ((input === input.toUpperCase()) && (input != input.toLowerCase())) {
+Bob.prototype.hey = function(phrase) {
+  if (isYelling(phrase)) {
     return 'Whoa, chill out!';
-  } else if (input.slice(-1).indexOf("?") >= 0) {
+  } else if (isQuestion(phrase)) {
     return "Sure.";
-  } else if (!input.trim()) {
+  } else if (isSilence(phrase)) {
     return "Fine. Be that way!";
   } else {
     return 'Whatever.';
   }
 };
+
+function isYelling(phrase) {
+	return (phrase === phrase.toUpperCase()) && (phrase != phrase.toLowerCase());
+}
+
+function isQuestion(phrase) {
+	return phrase.slice(-1).indexOf("?") >= 0;
+}
+
+function isSilence(phrase) {
+	return !phrase.trim();
+}
 
 
 module.exports = Bob;
