@@ -20,12 +20,10 @@ var song = {
   },
   part2: function(animal, verseNo){
     var lyrics = "";
-    var spiderContextCounter = (verseNo);
     for (var i = (verseNo); i > 1 ; i--){
       lyrics += "She swallowed the " + song.animalList[(i-1)] +
         " to catch the " + song.animalList[(i-2)] + ".\n";
-      spiderContextCounter--;
-      if ( i === (spiderContextCounter)){
+      if ( i === 3){
         lyrics = lyrics.substr(0, lyrics.length-2) +
         " that wriggled and jiggled and tickled inside her.\n";
       }
