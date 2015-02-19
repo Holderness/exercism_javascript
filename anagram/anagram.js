@@ -1,6 +1,6 @@
 
 var anagram = function anagram(word){
-	anagram.word = word;
+  anagram.word = word;
   return {
     matches: findAnagrams
   };
@@ -12,17 +12,17 @@ function findAnagrams(wordList) {
 }
 
 function filterWords(wordList){
-	return wordList.filter(function(word){
+  return wordList.filter(function(word){
     return isNotSameWord(word, anagram.word) && (normalize(word) === normalize(anagram.word));
   });
 }
 
 function isNotSameWord(word, anagram){
-	return word.toLowerCase() != anagram.toLowerCase();
+  return word.toLowerCase() != anagram.toLowerCase();
 }
 
 function normalize(string){
-	return string.toLowerCase().split("").sort().join("");
+  return string.toLowerCase().split("").sort().join("");
 }
 
 module.exports = anagram;
