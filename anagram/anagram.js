@@ -1,6 +1,6 @@
 
 var anagram = function anagram(word){
-  word: word;
+  anagram.word = word;
   return {
     matches: findAnagrams
   };
