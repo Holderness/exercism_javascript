@@ -34,8 +34,9 @@ var song = {
     return "I don't know why she swallowed the fly." +
     " Perhaps she'll die.\n";
   },
-  spiderVerseAddition: function(lyrics){
-
+  part4: function(){
+    return "I know an old lady who swallowed a horse.\n" +
+    "She's dead, of course!\n";
   },
   verse: function(verseNumber){
     var animal = song.animalList[(verseNumber-1)];
@@ -43,6 +44,18 @@ var song = {
     for (var i = 1; i <= 3; i++) {
       lyrics += song["part"+i](animal, verseNumber);
     }
+    if (verseNumber === 8) lyrics = song.part4();
+    return lyrics;
+  },
+  verses: function(startVerse, endVerse){
+    var lyrics = "";
+    var verseList = [];
+    for (var i = startVerse; i <= endVerse; i++) {
+      verseList.push(i);
+    }
+    verseList.forEach(function(verse){
+      lyrics += song.verse(verse) + "\n";
+    });
     return lyrics;
   }
 
